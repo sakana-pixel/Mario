@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mario_KBC_DxLib_Template21", "Mario_KBC_DxLib_Template21.vcxproj", "{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Debug|x64.ActiveCfg = Debug|x64
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Debug|x64.Build.0 = Debug|x64
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Debug|x86.ActiveCfg = Debug|Win32
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Debug|x86.Build.0 = Debug|Win32
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Release|x64.ActiveCfg = Release|x64
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Release|x64.Build.0 = Release|x64
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Release|x86.ActiveCfg = Release|Win32
+		{CAE88341-B1A8-4ECB-90A0-C0485D17E4CE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {226C6579-1F61-479B-B6C8-4E53DC8662FB}
+	EndGlobalSection
+EndGlobal
