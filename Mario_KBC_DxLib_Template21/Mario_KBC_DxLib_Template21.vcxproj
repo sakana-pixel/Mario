@@ -135,6 +135,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Appmain.cpp" />
+    <ClCompile Include="source\Actor\Actor.cpp" />
+    <ClCompile Include="source\Actor\Mario.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Actor\Actor.h" />
+    <ClInclude Include="source\Actor\Mario.h" />
+    <ClInclude Include="source\Utility\Math\MathUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
