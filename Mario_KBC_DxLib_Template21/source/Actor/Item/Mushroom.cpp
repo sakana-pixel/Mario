@@ -13,15 +13,17 @@ Mushroom::Mushroom() {
     imageHandle = -1;
 }
 
-void Mushroom::Spawn(float startX, float startYPos, int handle) {
+void Mushroom::Spawn(float startX, float startYPos) {
     x = startX;
     y = startYPos;
     startY = startYPos;
-    imageHandle = handle;
     vx = 1.5f;
     vy = 0.0f;
     state = 0;
     active = true;
+
+    // 画像の読み込み（フォルダ名のスペル aseets に合わせる）
+    imageHandle = LoadGraph("assets/Images/Item/mushroom.png");
 }
 
 void Mushroom::Update(float groundY) {
@@ -55,7 +57,6 @@ void Mushroom::Deactivate() {
     active = false;
 }
 
-// --- ゲッター関数の実装 ---
 bool Mushroom::IsActive() { return active; }
 float Mushroom::GetX() { return x; }
 float Mushroom::GetY() { return y; }

@@ -17,7 +17,7 @@ private:
 public:
     OneUpMushroom();
 
-    void Spawn(float startX, float startYPos, int handle);
+    void Spawn(float startX, float startYPos);
     void Update(float groundY);
     void Draw();
     void Deactivate();

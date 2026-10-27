@@ -8,16 +8,25 @@ FireFlower::FireFlower() {
     state = 0;
     startY = 0.0f;
     active = false;
-    imageHandle = -1;
+    animFrame = 0;
+    currentFrame = 0;
+
+    for (int i = 0; i < 4; i++) {
+        imageHandles[i] = -1;
+    }
 }
 
-void FireFlower::Spawn(float startX, float startYPos, int handle) {
+void FireFlower::Spawn(float startX, float startYPos) {
     x = startX;
     y = startYPos;
     startY = startYPos;
-    imageHandle = handle;
     state = 0;
     active = true;
+    animFrame = 0;
+    currentFrame = 0;
+
+    // 画像を4分割して読み込む（全4枚、横4列、縦1行、1枚の横幅32px、縦幅32px）
+    LoadDivGraph("assets/Images/Item/flower.png", 4, 4, 1, 32, 32, imageHandles);
 }
 
 void FireFlower::Update() {
@@ -29,11 +38,20 @@ void FireFlower::Update() {
             state = 1;
         }
     }
+
+    // --- アニメーションの更新 ---
+    animFrame++;
+    if (animFrame >= 8) { // 8フレームごとに次のコマへ（数字を小さくすると高速化）
+        animFrame = 0;
+        currentFrame = (currentFrame + 1) % 4; // 0 -> 1 -> 2 -> 3 -> 0 ...
+    }
 }
 
 void FireFlower::Draw() {
-    if (active == false || imageHandle == -1) return;
-    DrawGraph((int)x, (int)y, imageHandle, TRUE);
+    if (active == false || imageHandles[0] == -1) return;
+
+    // 現在のコマ番号（currentFrame）の画像を描画する
+    DrawGraph((int)x, (int)y, imageHandles[currentFrame], TRUE);
 }
 
 void FireFlower::Deactivate() {

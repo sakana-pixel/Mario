@@ -13,15 +13,16 @@ OneUpMushroom::OneUpMushroom() {
     imageHandle = -1;
 }
 
-void OneUpMushroom::Spawn(float startX, float startYPos, int handle) {
+void OneUpMushroom::Spawn(float startX, float startYPos) {
     x = startX;
     y = startYPos;
     startY = startYPos;
-    imageHandle = handle;
     vx = 1.5f;
     vy = 0.0f;
     state = 0;
     active = true;
+
+    imageHandle = LoadGraph("assets/Images/Item/1up_mushroom.png");
 }
 
 void OneUpMushroom::Update(float groundY) {

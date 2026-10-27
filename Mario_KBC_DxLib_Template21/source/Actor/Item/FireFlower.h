@@ -10,12 +10,16 @@ private:
     int state;
     float startY;
     bool active;
-    int imageHandle;
+
+    // アニメーション用
+    int imageHandles[4]; // 4コマ分の画像を保存する配列
+    int animFrame;       // アニメーションのカウント用
+    int currentFrame;    // 現在表示するコマの番号 (0~3)
 
 public:
     FireFlower();
 
-    void Spawn(float startX, float startYPos, int handle);
+    void Spawn(float startX, float startYPos);
     void Update();
     void Draw();
     void Deactivate();

@@ -13,12 +13,16 @@ private:
     int state;
     float startY;
     bool active;
-    int imageHandle;
+
+    // アニメーション用
+    int imageHandles[4];
+    int animFrame;
+    int currentFrame;
 
 public:
     SuperStar();
 
-    void Spawn(float startX, float startYPos, int handle);
+    void Spawn(float startX, float startYPos);
     void Update(float groundY);
     void Draw();
     void Deactivate();
