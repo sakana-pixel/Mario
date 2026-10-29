@@ -17,7 +17,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 		return -1;
 	}
 
-	InGameScene* scene = new InGameScene();
+	
 
 	//裏画面からウインドウを表示する
 	SetDrawScreen(DX_SCREEN_BACK);
