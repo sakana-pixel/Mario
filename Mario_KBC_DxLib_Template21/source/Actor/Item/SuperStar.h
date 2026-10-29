@@ -1,34 +1,35 @@
 #pragma once
 #include "DxLib.h"
 
-enum StarState {
-    STAR_STATE_EMERGING,
-    STAR_STATE_BOUNCING
-};
-
 class SuperStar {
 private:
-    float x, y;
-    float vx, vy;
-    float boundPower;  // 跳ね返る強さ
-    int width, height;
+    float x;
+    float y;
+    float vx;
+    float vy;
+    float boundPower;
+    int width;
+    int height;
     int state;
     float startY;
     bool active;
-    int imageHandle;
+
+    // アニメーション用
+    int imageHandles[4];
+    int animFrame;
+    int currentFrame;
 
 public:
     SuperStar();
-    ~SuperStar();
 
-    void Spawn(float startX, float startYPos, int handle);
+    void Spawn(float startX, float startYPos);
     void Update(float groundY);
-    void Draw() const;
+    void Draw();
+    void Deactivate();
 
-    bool IsActive() const { return active; }
-    float GetX() const { return x; }
-    float GetY() const { return y; }
-    int GetWidth() const { return width; }
-    int GetHeight() const { return height; }
-    void Deactivate() { active = false; }
+    bool IsActive();
+    float GetX();
+    float GetY();
+    int GetWidth();
+    int GetHeight();
 };

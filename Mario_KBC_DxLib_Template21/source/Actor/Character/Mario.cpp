@@ -1,6 +1,11 @@
 #include "Mario.h"
+#include "../../Scene/IngameScene.h"
 #include "../../Input/InputManager.h"
 #include "../../File/AssetContainer.h"
+#include "../Item/FireFlower.h"
+#include "../Item/Mushroom.h"
+#include "../Item/OneUpMushroom.h"
+#include "../Item/SuperStar.h"
 #include <DxLib.h>
 
 #define D_GRAVITY 1000.0f

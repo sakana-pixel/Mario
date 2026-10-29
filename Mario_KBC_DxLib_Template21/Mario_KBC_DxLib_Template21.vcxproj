@@ -143,6 +143,7 @@
     <ClCompile Include="source\Actor\Item\FireFlower.cpp" />
     <ClCompile Include="source\Actor\Item\Mushroom.cpp" />
     <ClCompile Include="source\Actor\Item\SuperStar.cpp" />
+    <ClCompile Include="source\Actor\Item\TestMain.cpp" />
     <ClCompile Include="source\Appmain.cpp" />
     <ClCompile Include="source\File\AssetContainer.cpp" />
     <ClCompile Include="source\File\Sprite.cpp" />

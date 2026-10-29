@@ -1,43 +1,46 @@
 #include "Mushroom.h"
 
-Mushroom::Mushroom()
-    : x(0), y(0), vx(1.5f), vy(0), width(32), height(32),
-    state(STATE_EMERGING), startY(0), active(false), imageHandle(-1) {
+Mushroom::Mushroom() {
+    x = 0.0f;
+    y = 0.0f;
+    vx = 1.5f;
+    vy = 0.0f;
+    width = 32;
+    height = 32;
+    state = 0;
+    startY = 0.0f;
+    active = false;
+    imageHandle = -1;
 }
 
-Mushroom::~Mushroom() {
-}
-
-void Mushroom::Spawn(float startX, float startYPos, int handle) {
+void Mushroom::Spawn(float startX, float startYPos) {
     x = startX;
     y = startYPos;
     startY = startYPos;
-    imageHandle = handle;
-    vx = 1.5f;             // 右方向に動く
+    vx = 1.5f;
     vy = 0.0f;
-    state = STATE_EMERGING;
-    active = true;         // 画面上に存在させる
+    state = 0;
+    active = true;
+
+    // 画像の読み込み（フォルダ名のスペル aseets に合わせる）
+    imageHandle = LoadGraph("assets/Images/Item/mushroom.png");
 }
 
 void Mushroom::Update(float groundY) {
-    if (!active) return;
+    if (active == false) return;
 
-    // 【状態1】ニョキッと出てくる処理
-    if (state == STATE_EMERGING) {
+    if (state == 0) {
         y -= 1.0f;
         if (startY - y >= height) {
-            state = STATE_MOVING;
+            state = 1;
         }
     }
-    // 【状態2】出現後の通常移動
-    else if (state == STATE_MOVING) {
+    else if (state == 1) {
         x += vx;
 
-        // 重力
         vy += 0.5f;
         y += vy;
 
-        // 着地判定（仮の地表判定）
         if (y + height >= groundY) {
             y = groundY - height;
             vy = 0.0f;
@@ -45,9 +48,17 @@ void Mushroom::Update(float groundY) {
     }
 }
 
-void Mushroom::Draw() const {
-    if (!active || imageHandle == -1) return;
-
-    // キノコの描画（透過ON）
+void Mushroom::Draw() {
+    if (active == false || imageHandle == -1) return;
     DrawGraph((int)x, (int)y, imageHandle, TRUE);
 }
+
+void Mushroom::Deactivate() {
+    active = false;
+}
+
+bool Mushroom::IsActive() { return active; }
+float Mushroom::GetX() { return x; }
+float Mushroom::GetY() { return y; }
+int Mushroom::GetWidth() { return width; }
+int Mushroom::GetHeight() { return height; }
