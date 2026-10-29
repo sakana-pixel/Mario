@@ -1,6 +1,7 @@
 #include"DxLib.h"
 
 #include"Input/InputManager.h"
+#include"Scene/InGameScene.h"
 
 //#include"Scene/SceneManager.h"
 
@@ -15,6 +16,9 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 	{
 		return -1;
 	}
+
+	InGameScene* scene = new InGameScene();
+
 	//裏画面からウインドウを表示する
 	SetDrawScreen(DX_SCREEN_BACK);
 
@@ -22,6 +26,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 	{
 
 		InputManager::Update();
+
 
 		//画面の初期化
 		ClearDrawScreen();
