@@ -7,6 +7,7 @@
 
 int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 {
+	
 	//ウインドウモードで起動
 	ChangeWindowMode(TRUE);
 	//画面サイズの設定（X軸MAX：1280　Y軸MAX：720）

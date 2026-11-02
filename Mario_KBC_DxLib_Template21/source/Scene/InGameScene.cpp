@@ -274,7 +274,30 @@ void InGameScene::LoadStageData()
                 {
                     StageData::Get()->SetPanelData(ePanelID::eWall, pos, 1, 1);
                 }
+                else if (cell == "5")
+                {
+                    //Kuribo* new_enemy=mew Kuribo(pos);
+                    //owned_actors.push_back(new_enemy);
+                }
+                else if (cell == "6")
+                {
+                    //Nokonoko* new_enemy= new Nokonoko(pos);
+                    //owned_actors.push_back(new_enemy);
+                }
+
                 else if (cell == "a")
+                {
+                    StageData::Get()->SetPanelData(ePanelID::eWall, pos, 1, 1);
+                }
+                else if (cell == "b")
+                {
+                    StageData::Get()->SetPanelData(ePanelID::eWall, pos, 1, 1);
+                }
+                else if (cell == "c")
+                {
+                    StageData::Get()->SetPanelData(ePanelID::eWall, pos, 1, 1);
+                }
+                else if (cell == "d")
                 {
                     StageData::Get()->SetPanelData(ePanelID::eWall, pos, 1, 1);
                 }
@@ -293,6 +316,7 @@ void InGameScene::LoadBackgroundData()
     //開けなかったらやり直し
     if (!file.is_open())
     {
+        OutputDebugStringA("CSVファイルの読み込みに失敗しました");
         return;
     }
     bg_data.clear();
