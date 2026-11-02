@@ -55,8 +55,8 @@ SceneBase* SceneManager::CreateScene(eSceneType new_scene_type)
 	case eSceneType::eInGame:
 	case eSceneType::eRestart:
 		return dynamic_cast<SceneBase*>(new InGameScene());
-	case eSceneType::eResult:
-		return dynamic_cast<SceneBase*>(new ResultScene());
+	//case eSceneType::eResult:
+	//	return dynamic_cast<SceneBase*>(new ResultScene());
 	default:
 		return nullptr;
 	}
