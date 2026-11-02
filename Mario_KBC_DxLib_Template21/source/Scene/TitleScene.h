@@ -6,28 +6,31 @@ class DivSprite;
 
 class TitleScene : public SceneBase {
 private:
-    // UI用スプライト
+    // 背景・マリオ・キノコ
     Sprite* bgSprite;
+    DivSprite* marioSprite;
+    Sprite* mushroomSprite;
 
+    // UI画像アセット
+    Sprite* nameMarioSprite;
     Sprite* worldSprite;
     Sprite* timeSprite;
     Sprite* topSprite;
+    DivSprite* coinSprite; // uicoin.png (4分割)
 
-    // 分割スプライト
-    DivSprite* marioSprite;
-    DivSprite* coinSprite;
+    // 文字フォントスプライト
     DivSprite* fontAlphaSprite;
     DivSprite* fontNumSprite;
 
-    // 点滅・アニメーション制御
+    // タイマー・アニメーション
     float disp_timer;
     bool is_disp;
     int coinAnimFrame;
     int coinCurrentFrame;
 
-    int selectMenu;         // 0: 1 PLAYER GAME, 1: 2 PLAYER GAME
+    int selectMenu; // 0: 1 PLAYER GAME, 1: 2 PLAYER GAME
 
-    // 文字列描画用の便利関数
+    // カスタム文字描画関数
     void DrawStringCustom(int x, int y, const char* str) const;
 
 public:
