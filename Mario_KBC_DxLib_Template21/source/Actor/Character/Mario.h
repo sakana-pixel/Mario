@@ -13,6 +13,7 @@ enum eState
 class Mario : public Character
 {
 private:
+	Vector2 previousLocation;
 	DivSprite move_animation;
 	float animation_time;
 	int animation_num;
@@ -62,6 +63,16 @@ public:
 public:
 	virtual void OnHitCollisionEnter(Actor* actor) override;
 	eActorTag GetActorTag() const override;
+
+public:
+	void SetGround(bool ground);
+	void SetVelocityY(float value);
+	void SetVelocityX(float value);
+	Vector2 GetPreviousLocation() const;
+
+	void GetCollisionRect(float& left, float& top, float& right, float& bottom) const;		// “–‚½‚è”»’è”ÍˆÍ‚ðŽæ“¾
+	void OnStompEnemy();		// “G‚ð“¥‚ñ‚¾‚Æ‚«
+	void OnDamage();			// “G‚É‚Ô‚Â‚©‚Á‚½‚Æ‚«
 
 private:
 	void InputCheck(float delta_second);

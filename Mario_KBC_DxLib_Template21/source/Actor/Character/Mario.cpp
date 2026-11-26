@@ -29,14 +29,15 @@ void Mario::Initialize()
 {
 	AssetContainer* container = AssetContainer::Get();
 	location = Vector2(155.0f, 626.0f);
+	previousLocation;
 	scale = 2.0f;
 	speed = 1.0f;
 	gravity = 1000.0f;
-	walkAcceleration = 100.0f;
-	dashAcceleration = 150.0f;
+	walkAcceleration = 500.0f;
+	dashAcceleration = 800.0f;
 	walkMaxSpeed = 150.0f;
 	dashMaxSpeed = 250.0f;
-	friction = 800.0f;
+	friction = 500.0f;
 	airFriction = 100.0f;
 	jump = 400.0f;
 	jumpBoost = 1500.0f;
@@ -56,7 +57,8 @@ void Mario::Update(float delta_second)
 	Jump(delta_second);
 	
 
-
+	// 移動前の座標を保存
+	previousLocation = location;
 
 	////重力
 	velocity.y += gravity * delta_second;
@@ -82,13 +84,13 @@ void Mario::Update(float delta_second)
 
 	Movement(delta_second);
 
-	//仮地面
-	if (location.y >= 626.0f)
-	{
-		location.y = 626.0f;
-		velocity.y = 0.0f;
-		is_Ground = true;
-	}
+	////仮地面
+	//if (location.y >= 626.0f)
+	//{
+	//	location.y = 626.0f;
+	//	velocity.y = 0.0f;
+	//	is_Ground = true;
+	//}
 
 	UpdateCollision();
 	MoveAnimation(delta_second);
@@ -122,6 +124,46 @@ void Mario::OnHitCollisionEnter(Actor* actor)
 eActorTag Mario::GetActorTag() const
 {
 	return eActorTag::ePlayer;
+}
+
+Vector2 Mario::GetPreviousLocation() const
+{
+	return previousLocation;
+}
+
+void Mario::SetGround(bool ground)
+{
+	is_Ground = ground;
+}
+
+void Mario::SetVelocityY(float value)
+{
+	velocity.y = value;
+}
+
+void Mario::SetVelocityX(float value)
+{
+	velocity.x = value;
+}
+
+
+void Mario::GetCollisionRect(float& left, float& top, float& right, float& bottom) const
+{
+	left = collisionLeft;
+	top = collisionTop;
+	right = collisionRight;
+	bottom = collisionBottom;
+}
+
+void Mario::OnStompEnemy()
+{
+	velocity.y = -250.0f;
+	is_Ground = false;
+}
+
+void Mario::OnDamage()
+{
+
 }
 
 void Mario::InputCheck(float delta_second)
